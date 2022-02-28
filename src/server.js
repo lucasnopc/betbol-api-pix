@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
     valor: {
       original: '0.10'
     },
-    chave: '126bec4a-2eb6-4b79-a045-78db68412899',
+    chave: 'd98cc64b-64fa-401d-b488-c295d9b57958',
     solicitacaoPagador: 'Cobrança dos serviços prestados.'
   };
 
