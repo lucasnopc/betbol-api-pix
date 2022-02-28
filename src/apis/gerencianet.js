@@ -35,22 +35,6 @@ const authenticate = ({ clientID, clientSecret }) => {
 const GNRequest = async (credentials) => {
   const authResponse = await authenticate(credentials);
   const accessToken = authResponse.data?.access_token;
-const express = require("express")
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => {
-  res.send('Hello World')
-})
-app.get('/pix', (req, res) => {
-  res.send({
-    message: 'pix'
-  })
-})
-
-app.listen(port, () => {
-  console.log(`exemple app listening on port ${port}`)
-})
 
   return axios.create({
     baseURL: process.env.GN_ENDPOINT,
