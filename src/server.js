@@ -27,7 +27,7 @@ app.get('/', async (req, res) => {
     valor: {
       original: '0.10'
     },
-    chave: 'd98cc64b-64fa-401d-b488-c295d9b57958',
+    chave: 'f54efa19-a7cb-427c-8e3c-63504f506ed3',
     solicitacaoPagador: 'Transfira um pix para sua conta betbol.'
   };
 
