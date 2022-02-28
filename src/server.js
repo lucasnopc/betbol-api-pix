@@ -50,6 +50,6 @@ app.post('/webhook(/pix)?', (req, res) => {
   res.send('200');
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('running');
 })
