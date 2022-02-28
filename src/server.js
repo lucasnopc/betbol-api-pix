@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
       original: '0.10'
     },
     chave: 'd98cc64b-64fa-401d-b488-c295d9b57958',
-    solicitacaoPagador: 'Cobrança dos serviços prestados.'
+    solicitacaoPagador: 'Transfira um pix para sua conta betbol.'
   };
 
   const cobResponse = await reqGN.post('/v2/cob', dataCob);
