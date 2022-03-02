@@ -19,7 +19,7 @@ const reqGNAlready = GNRequest({
 });
 
 app.get('/', async (req, res) => {
-  const value = String(Number(req.body.value).toFixed(2))
+  const value = req.body.value
   const reqGN = await reqGNAlready;
   const dataCob = {
     calendario: {
