@@ -7,10 +7,7 @@
 # 	accept_mutex on;
 # 	worker_connections <%= ENV['NGINX_WORKER_CONNECTIONS'] || 1024 %>;
 # }
-http {
-  fastcgi_buffers 8 16k;
-  fastcgi_buffer_size 32k;
-}
+
 # http {
 # 	gzip on;
 # 	gzip_comp_level 2;
@@ -35,7 +32,8 @@ http {
 	# }
 
 	server {
-		listen <%= ENV["PORT"] %>;
+		listen 0.0.0.0:80 
+    # <%= ENV["PORT"] %>;
 		# server_name _;
 		# keepalive_timeout 5;
 
