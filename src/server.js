@@ -19,7 +19,7 @@ const reqGNAlready = GNRequest({
 });
 
 app.get('/', async (req, res) => {
-  const value = req.body.value
+  const value = req.query.value
   const reqGN = await reqGNAlready;
   const dataCob = {
     calendario: {
@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
     chave: 'f54efa19-a7cb-427c-8e3c-63504f506ed3',
     solicitacaoPagador: 'Transfira um pix para sua conta betbol.'
   };
-
+  
   const cobResponse = await reqGN.post('/v2/cob', dataCob);
   const qrcodeResponse = await reqGN.get(`/v2/loc/${cobResponse.data.loc.id}/qrcode`);
 
