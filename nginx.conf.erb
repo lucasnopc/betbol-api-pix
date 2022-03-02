@@ -47,5 +47,8 @@ http {
 			proxy_redirect off;
 			proxy_pass http://app_server;
 		}
+    location /api/ {
+      return 200 'api-pix'
+    }
 	}
 }
