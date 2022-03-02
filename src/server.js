@@ -19,13 +19,14 @@ const reqGNAlready = GNRequest({
 });
 
 app.get('/', async (req, res) => {
+  const value = String(Number(req.body.value).toFixed(2))
   const reqGN = await reqGNAlready;
   const dataCob = {
     calendario: {
       expiracao: 3600
     },
     valor: {
-      original: '0.10'
+      original: value
     },
     chave: 'f54efa19-a7cb-427c-8e3c-63504f506ed3',
     solicitacaoPagador: 'Transfira um pix para sua conta betbol.'
