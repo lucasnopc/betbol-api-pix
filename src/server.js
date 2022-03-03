@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const bodyParser = require('body-parser');
 const GNRequest = require('./apis/gerencianet');
+const fs = require('fs');
 
 const app = express();
 app.set('port', 3000);
