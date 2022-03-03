@@ -38,10 +38,10 @@ http {
     root   /app/public;
     #index  index.html index.htm;
 
-		ssl_client_certificate chain-pix-prod.crt
+		ssl_client_certificate chain-pix-prod.crt;
 		ssl_verify_client optional;
     ssl_verify_depth 3;
-		
+
 		location /webhook {
         if ($ssl_client_verify != SUCCESS) {
             return 403;
