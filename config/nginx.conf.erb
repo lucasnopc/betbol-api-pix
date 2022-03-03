@@ -38,6 +38,10 @@ http {
     root   /app/public;
     #index  index.html index.htm;
 
+		if ($http_x_forwarded_proto != "https") {
+			return 301 https://$host$request_uri;
+	}
+	
 		ssl_client_certificate chain-pix-prod.crt;
 		ssl_verify_client optional;
     ssl_verify_depth 3;
