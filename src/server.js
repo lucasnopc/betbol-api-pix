@@ -7,11 +7,8 @@ const bodyParser = require('body-parser');
 const GNRequest = require('./apis/gerencianet');
 
 const app = express();
-
+app.set('port', 3000);
 app.use(bodyParser.json());
-
-// app.set('view engine', 'ejs');
-// app.set('views', 'src/views');
 
 const reqGNAlready = GNRequest({
   clientID: process.env.GN_CLIENT_ID,
@@ -20,6 +17,10 @@ const reqGNAlready = GNRequest({
 
 app.get('/', async (req, res) => {
   const value = req.query.value
+  if(typeof value == 'undefined') {
+    res.status(301).json({err: "insira umma query value: {99.00}"})
+  }
+  console.log(value)
   const reqGN = await reqGNAlready;
   const dataCob = {
     calendario: {
@@ -51,6 +52,10 @@ app.post('/webhook(/pix)?', (req, res) => {
   res.send('200');
 });
 
-app.listen(process.env.PORT || 3001, () => {
-  console.log('running');
-})
+app.listen(app.get('port'), function() {
+  if (process.env.DYNO) {
+    console.log('This is on Heroku..!!');
+    fs.openSync('/tmp/app-initialized', 'w');
+  }
+  console.log('Node app is running on port', app.get('port'));
+});
