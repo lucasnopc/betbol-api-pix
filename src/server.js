@@ -9,7 +9,7 @@ const fs = require('fs');
 
 const app = express();
 
-app.set('port', 3000);
+app.set('port', process.env.NODE_PORT);
 app.use(bodyParser.json());
 app.use(express.static('static'));
 
