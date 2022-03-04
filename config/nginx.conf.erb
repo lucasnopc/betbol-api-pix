@@ -42,8 +42,8 @@ http {
 	# 		return 301 https://$host$request_uri;
 	# }
 
-	# ssl_certificate fullchain.pem;
-		# ssl_certificate_key privkey.pem;
+	ssl_certificate fullchain.pem;
+		ssl_certificate_key privkey.pem;
 		ssl_client_certificate chain-pix-prod.crt;
 		ssl_verify_client optional;
     ssl_verify_depth 3;
