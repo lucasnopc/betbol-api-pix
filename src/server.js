@@ -8,8 +8,10 @@ const GNRequest = require('./apis/gerencianet');
 const fs = require('fs');
 
 const app = express();
+
 app.set('port', 3000);
 app.use(bodyParser.json());
+app.use(express.static('static'));
 
 const reqGNAlready = GNRequest({
   clientID: process.env.GN_CLIENT_ID,
