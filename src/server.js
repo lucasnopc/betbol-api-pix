@@ -47,7 +47,7 @@ app.get('/', async (req, res) => {
     try {
       const cobResponse = await reqGN.post('/v2/cob', dataCob)
       const qrcodeResponse = await reqGN.get(`/v2/loc/${cobResponse.data.loc.id}/qrcode`)
-      res.send({ qrcodeImage: qrcodeResponse.data })
+      res.send(qrcodeResponse.data)
     } catch (error) {
       console.log('restart request ', error)
     }
