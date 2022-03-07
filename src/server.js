@@ -14,11 +14,11 @@ app.set('port', process.env.NODE_PORT);
 app.use(bodyParser.json());
 app.use(express.static('static'));
 
-const reqGNAlready = GNRequest({
-  clientID: process.env.GN_CLIENT_ID,
-  clientSecret: process.env.GN_CLIENT_SECRET
-})
 app.get('/', async (req, res) => {
+  const reqGNAlready = GNRequest({
+    clientID: process.env.GN_CLIENT_ID,
+    clientSecret: process.env.GN_CLIENT_SECRET
+  })
   const value = req.query.value
   const cpf = req.query.cpf
   const name = req.query.name
@@ -50,14 +50,9 @@ app.get('/', async (req, res) => {
       res.send({ qrcodeImage: qrcodeResponse.data.imagemQrcode })
     } catch (error) {
       console.log('restart request ', error)
-      const reqGNAlready = GNRequest({
-        clientID: process.env.GN_CLIENT_ID,
-        clientSecret: process.env.GN_CLIENT_SECRET
-      })
-      const reqGN2 = await reqGNAlready
-      funcqrcodeRespose(reqGN2)
     }
   }
+  funcqrcodeRespose(reqGN)
 });
 
 app.get('/cobrancas', async (req, res) => {
