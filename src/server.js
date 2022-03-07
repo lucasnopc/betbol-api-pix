@@ -72,6 +72,7 @@ app.get('/cobrancas', async (req, res) => {
 app.post('/webhook(/pix)?', (req, res) => {
   try {
     axios.post(process.env.WEBHOOK_SERVER, req.body);
+    console.log('req.body', req.body);
     res.send('200');
   }catch (err) {
     console.log(err)
