@@ -53,11 +53,10 @@ app.get('/', async (req, res) => {
         clientID: process.env.GN_CLIENT_ID,
         clientSecret: process.env.GN_CLIENT_SECRET
       })
+      const reqGN = await reqGNAlready
+      funcqrcodeRespose()
     }
-    const reqGN = await reqGNAlready
-    funcqrcodeRespose()
   }
-funcqrcodeRespose()
 });
 
 app.get('/cobrancas', async (req, res) => {
