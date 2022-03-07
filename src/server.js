@@ -6,6 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const GNRequest = require('./apis/gerencianet');
 const fs = require('fs');
+const axios = require('axios');
 
 const app = express();
 
@@ -69,8 +70,12 @@ app.get('/cobrancas', async (req, res) => {
 });
 
 app.post('/webhook(/pix)?', (req, res) => {
-  app.post(process.env.WEBHOOK_SERVER, req.body)
-  res.send('200');
+  try {
+    axios.post(process.env.WEBHOOK_SERVER, req.body);
+    res.send('200');
+  }catch (err) {
+    console.log(err)
+  }
 });
 
 app.listen(app.get('port'), function () {
