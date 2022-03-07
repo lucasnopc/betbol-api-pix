@@ -58,7 +58,6 @@ app.get('/', async (req, res) => {
       funcqrcodeRespose(reqGN2)
     }
   }
-  funcqrcodeRespose(reqGN)
 });
 
 app.get('/cobrancas', async (req, res) => {
