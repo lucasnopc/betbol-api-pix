@@ -56,6 +56,10 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/cobrancas', async (req, res) => {
+  const reqGNAlready = GNRequest({
+    clientID: process.env.GN_CLIENT_ID,
+    clientSecret: process.env.GN_CLIENT_SECRET
+  })
   const reqGN = await reqGNAlready;
 
   const cobResponse = await reqGN.get('/v2/cob?inicio=2022-03-06T05:01:35Z&fim=2022-03-22T23:59:00Z');
