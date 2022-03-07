@@ -42,7 +42,7 @@ app.get('/', async (req, res) => {
       nome: name
     }
   }
-  const funcqrcodeRespose = async () => {
+  const funcqrcodeRespose = async (reqGN) => {
     try {
       const cobResponse = await reqGN.post('/v2/cob', dataCob)
       const qrcodeResponse = await reqGN.get(`/v2/loc/${cobResponse.data.loc.id}/qrcode`)
@@ -53,10 +53,11 @@ app.get('/', async (req, res) => {
         clientID: process.env.GN_CLIENT_ID,
         clientSecret: process.env.GN_CLIENT_SECRET
       })
-      const reqGN = await reqGNAlready
-      funcqrcodeRespose()
+      const reqGN2 = await reqGNAlready
+      funcqrcodeRespose(reqGN2)
     }
   }
+  funcqrcodeRespose(reqGN)
 });
 
 app.get('/cobrancas', async (req, res) => {
