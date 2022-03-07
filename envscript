@@ -1,0 +1,7 @@
+export GN_CLIENT_ID=Client_Id_a28512d60f4f9d3eba513af5506aa30ecbc5bfae
+export GN_CLIENT_SECRET=Client_Secret_8d24111d0bc9a0c345e09762769261ead27f644a
+export GN_ENDPOINT=https://api-pix.gerencianet.com.br
+export NODE_ENV=production
+export GN_CERT=producao-366557-cert_prod.p12
+export NODE_PORT=8000
+export WEBHOOK_SERVER=https://betbol.io/api/webhook
